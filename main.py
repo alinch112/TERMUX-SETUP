@@ -1,7 +1,6 @@
 import os
 import time
 import sys
-import threading
 
 # Hack Style Typing Animation
 def hacker_typing(text, delay=0.02):
@@ -11,19 +10,15 @@ def hacker_typing(text, delay=0.02):
         time.sleep(delay)
     print()
 
-# MATRIX Effect in Background
-def start_matrix():
-    os.system("cmatrix -b -u 2")
-
-# Start cmatrix in background thread
-matrix_thread = threading.Thread(target=start_matrix)
-matrix_thread.daemon = True
-matrix_thread.start()
+# MATRIX Effect (optional)
+os.system("cmatrix -b -u 3 &")
+time.sleep(2)
+os.system("pkill cmatrix")
 
 # ফেসবুক আইডি ওপেন
 hacker_typing("\n[✓] Redirecting to Facebook profile...\n", 0.05)
 os.system("xdg-open https://www.facebook.com/profile.php?id=100001889177878")
-time.sleep(2)
+time.sleep(1)
 
 # স্ক্রিন পরিষ্কার
 os.system("clear")
@@ -41,11 +36,6 @@ print("")
 
 # ইউজারের চয়েস
 choice = input("\n[:] YOUR CHOICE : ")
-
-# cmatrix বন্ধ করা হবে এখানে, ইউজারের ইনপুট পাওয়ার পর
-os.system("pkill cmatrix")
-time.sleep(0.5)
-os.system("clear")
 
 # অপশন হ্যান্ডলিং
 if choice == '1' or choice == '01':
